@@ -22,13 +22,14 @@ function Chat({ questionText, getQuestions, setLoadingQuestions }: any) {
     if (listening && transcript) {
       setCurrentSpeech(transcript);
     }
-  }, [transcript, listening]);
+  }, [transcript]);
 
   useEffect(() => {
+    resetTranscript();
+
     if (!listening && currentSpeech.length > 0) {
       setAnswer(answer ? answer + " " + currentSpeech : currentSpeech);
       setCurrentSpeech("");
-      resetTranscript();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listening]);
