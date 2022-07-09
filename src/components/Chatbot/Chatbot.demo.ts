@@ -13,6 +13,7 @@ class ChatbotQuestionsProxy {
 
   generateSpeechMarksData(marks: any) {
     marks = "[" + marks + "]";
+    // eslint-disable-next-line
     marks = marks.replace(new RegExp("}\n{", "g"), "},{");
     let marksJson = JSON.parse(marks);
     let frames = [];
